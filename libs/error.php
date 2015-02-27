@@ -8,7 +8,7 @@
 class Error_Lib extends Exception{
     public function echoError(){
         $str = "
-            Error in $this->file at line $this->line : $this->message
+            <h3>Error in $this->file at line $this->line : $this->message</h3><hr />
         ";
         echo $str;
     }
