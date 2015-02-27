@@ -45,16 +45,16 @@ class Bee_Bphp{
 				$this->controller = new $class;
                 $this->controller->setRequest($ctrl, $func, $this->getVars);
 			}else{
-				die("class $class does not exist!");
+				throw new Error_Bphp("class $class does not exist!");
 			}
 		}else{
-			die("page $ctrl does not exist!");
+			throw new Error_Bphp("page $ctrl does not exist!");
 		}
 		
 		if(method_exists($this->controller, $func)){
 			$this->controller->$func();
 		}else{
-			die("function $func dose not exist!");
+			throw new Error_Bphp("function $func dose not exist!");
 		}
 	}
 

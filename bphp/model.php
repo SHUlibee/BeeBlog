@@ -33,7 +33,7 @@ class Model_Bphp{
 		if(isset($this->link[$db_name])){
 			$this->connect_db($db_name);
 		}else{
-			die("$db_name does not exist!");
+			throw new Error_Bphp("$db_name does not exist!");
 		}
 	}
 
@@ -48,7 +48,7 @@ class Model_Bphp{
 			$this->link[$db_name]['username'],
 			$this->link[$db_name]['password']);
 
-		if(!$this->con) die("Could not connect :".mysql_error());
+		if(!$this->con) throw new Error_Bphp("Could not connect :".mysql_error());
 
 		if(!mysql_select_db($this->link[$db_name]['database'], $this->con))
             throw new Exception('Could not connect DB you had set :'.mysql_error());
