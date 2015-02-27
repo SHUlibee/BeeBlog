@@ -10,7 +10,7 @@ function __autoload($className){
 	
 	//构造class文件路径
     if($suffix === 'Bphp'){
-        $file = FRAME_ROOT . '/'. strtolower($suffix) .'/' . strtolower($filename) . '.php';
+        $file = dirname(FRAME_ROOT) . '/'. strtolower($suffix) .'/' . strtolower($filename) . '.php';
     }else{
 	    $file = SERVER_ROOT . '/'. strtolower($suffix) .'s/' . strtolower($filename) . '.php';
     }
