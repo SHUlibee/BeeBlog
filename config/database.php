@@ -4,7 +4,7 @@
 $DB['local'] = array(
 	'dbdriver' => 'mysql',
 	'hostname' => 'localhost',
-	'database' => 'mymvc',
+	'database' => 'beeblog',
 	'username' => 'root',
 	'password' => 'root',
 	'prefix'   => 'bb_',
@@ -14,7 +14,7 @@ $DB['local'] = array(
 $DB['develope'] = array(
     'dbdriver' => 'mysql',
     'hostname' => 'localhost',
-    'database' => 'mymvc',
+    'database' => 'beeblog',
     'username' => 'root',
     'password' => 'root',
     'prefix'   => 'bb_',
