@@ -5,6 +5,7 @@
 
 //应用根目录
 define('SERVER_ROOT', dirname(__FILE__));
+define('FRAME_ROOT', dirname(SERVER_ROOT));
 
 //服务器域名
 define('SITE_ROOT', 'http://mvc.com');
@@ -18,4 +19,4 @@ error_reporting(E_ALL);
 session_start();
 
 //引入路由
-require_once(SERVER_ROOT . '/libs/' . 'router.php');
+require_once(FRAME_ROOT . '/bphp/' . 'router.php');

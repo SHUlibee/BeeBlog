@@ -5,7 +5,7 @@
 		<?php include SERVER_ROOT.'/views/common/menu.html.php';?>
 	</div>
 	<div class="col-md-10">
-		<?php include(View_Lib::$VIEW_FILE);?>
+		<?php include(View_Bphp::$VIEW_FILE);?>
 	</div>
 </div>
 

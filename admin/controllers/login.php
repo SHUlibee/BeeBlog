@@ -1,5 +1,5 @@
 ﻿<?php
-class Login_Controller extends Controller_Lib{
+class Login_Controller extends Controller_Bphp{
 	
 	public function __construct(){
 		parent::__construct();

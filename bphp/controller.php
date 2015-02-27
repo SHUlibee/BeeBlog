@@ -3,15 +3,15 @@
  * 处理控制器
  * @author code29
  */
-class Controller_Lib{
+class Controller_Bphp{
 
     /**
-     * @var null|View_Lib 视图
+     * @var null|View_Bphp 视图
      */
     public $view = null;
 
     /**
-     * @var null|Loader_Lib 装载器
+     * @var null|Loader_Bphp 装载器
      */
     public $load = null;
 
@@ -22,8 +22,8 @@ class Controller_Lib{
 
 	public function __construct(){
 		
-		$this->view = new View_Lib();
-        $this->load = new Loader_Lib();
+		$this->view = new View_Bphp();
+        $this->load = new Loader_Bphp();
 	}
 
     /**

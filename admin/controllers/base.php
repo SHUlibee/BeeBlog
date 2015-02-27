@@ -1,5 +1,5 @@
 ﻿<?php
-class Base_Controller extends Controller_Lib{
+class Base_Controller extends Controller_Bphp{
 	
 	public function __construct(){
 		parent::__construct();

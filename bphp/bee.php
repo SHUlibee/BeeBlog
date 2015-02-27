@@ -3,10 +3,10 @@
  * 框架入口
  * @author code29
  */
-class Bee_Lib{
-	
-	var $controller = null;
-	
+class Bee_Bphp{
+
+    var $controller = null;
+
 	var $ctrl = null;
 	var $func = null;
     var $getVars = null;

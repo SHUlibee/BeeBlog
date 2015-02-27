@@ -3,7 +3,7 @@
  * 装载器 -- 使用静态变量存储实例，保证每个装载的类的单例性
  * @author bee
  */
-class Loader_Lib{
+class Loader_Bphp{
 
     private static $load;
 

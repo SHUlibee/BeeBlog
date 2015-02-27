@@ -3,7 +3,7 @@
  * 处理视图
  * @author code29
  */
-class View_Lib{
+class View_Bphp{
 	
 	static $VIEW_FILE = '';
 	
