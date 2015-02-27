@@ -9,7 +9,12 @@ class Model_Lib{
 	 * 数据库
 	 */
 	protected $db_name = 'default';
-	
+
+    /**
+     * 数据库前缀
+     */
+    protected $prefix = '';
+
 	/**
 	 * 数据库连接参数
 	 */
@@ -29,6 +34,7 @@ class Model_Lib{
 		include_once(SERVER_ROOT.'/config/database.php');
 		
 		$this->link = $DB;
+        $this->prefix = $DB['prefix'];
 		if(isset($this->link[$db_name])){
 			$this->connect_db($db_name);
 		}else{

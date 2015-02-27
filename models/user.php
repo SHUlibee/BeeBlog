@@ -2,12 +2,14 @@
 
 class User_Model extends Model_Lib{
 	
-	var $tb_user = 'mm_user';
-    var $tb_role = 'mm_role';
-    var $tb_right = 'mm_right';
+
 	
 	public function __construct(){
 		parent::__construct('local');
+
+        $this->$tb_user = $this->prefix.'user';
+        $this->$tb_user = $this->prefix.'role';
+        $this->$tb_user = $this->prefix.'right';
 	}
 	
 	public function get_user(){

@@ -10,7 +10,7 @@ class Login_Controller extends Controller_Lib{
 	}
 	
 	public function index(){
-		$this->load->config('database');
+
 		$this->view->render('login/view');
 	}
 	

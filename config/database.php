@@ -7,7 +7,7 @@ $DB['local'] = array(
 	'database' => 'mymvc',
 	'username' => 'root',
 	'password' => 'root',
-	'prefix'   => '',
+	'prefix'   => 'bb_',
 );
 
 
@@ -17,5 +17,5 @@ $DB['develope'] = array(
     'database' => 'mymvc',
     'username' => 'root',
     'password' => 'root',
-    'prefix'   => '',
+    'prefix'   => 'bb_',
 );
