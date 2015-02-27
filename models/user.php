@@ -8,8 +8,8 @@ class User_Model extends Model_Lib{
 		parent::__construct('local');
 
         $this->tb_user = $this->prefix.'user';
-        $this->tb_user = $this->prefix.'role';
-        $this->tb_user = $this->prefix.'right';
+        $this->tb_role = $this->prefix.'role';
+        $this->tb_right = $this->prefix.'right';
 	}
 	
 	public function get_user(){

@@ -23,10 +23,7 @@ try{
     $BEE->run();
 }catch (Error_Lib $ee){
     echo $ee->echoError();
-}catch (Exception $ee){
-    echo '<h3>'.$ee->getMessage().'</h3><hr/>';
 }
-
 
 
 
