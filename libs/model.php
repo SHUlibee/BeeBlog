@@ -34,7 +34,7 @@ class Model_Lib{
 		include_once(SERVER_ROOT.'/config/database.php');
 		
 		$this->link = $DB;
-        $this->prefix = $DB['prefix'];
+        $this->prefix = $DB[$db_name]['prefix'];
 		if(isset($this->link[$db_name])){
 			$this->connect_db($db_name);
 		}else{

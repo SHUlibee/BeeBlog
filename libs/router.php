@@ -22,7 +22,7 @@ try{
     $BEE = new Bee_Lib();
     $BEE->run();
 }catch (Error_Lib $ee){
-    echo $ee->echoError();
+    echo $ee->echoError().'<hr>';
 }
 
 
