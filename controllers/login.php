@@ -24,7 +24,7 @@ class Login_Controller extends Controller_Lib{
 		if($pwd && isset($user) && $pwd == $user->password){
 			
 			$_SESSION['account'] = $acc;
-			
+			var_dump('you password is matched!!');
 			header("Location: index.php?c=home");
 		}else{
             header("Location: index.php?c=user");
