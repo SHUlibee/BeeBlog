@@ -1,4 +1,4 @@
-﻿<?php include '/../common/header.html.php';?>
+﻿<?php include SERVER_ROOT.'/views/common/header.html.php';?>
 
 <div id="login-panel" class="panel">
 	<div class="panel-heading">欢迎使用【蜜蜂博客】</div>
@@ -36,4 +36,4 @@
 }
 </style>
 
-<?php include '/../common/footer.html.php';?>
+<?php include SERVER_ROOT.'/views/common/footer.html.php';?>
