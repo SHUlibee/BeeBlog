@@ -12,6 +12,10 @@ class Bee_Bphp{
     var $getVars = null;
 	
 	public function __construct(){
+
+        //检验必要常量
+        $this->_validateConst();
+
         //初始化访问参数
 		$this->_initRequest();
 	}
@@ -88,5 +92,11 @@ class Bee_Bphp{
         $this->func     = $func;
         $this->getVars  = $getVars;
     }
-	
+
+    private function _validateConst(){
+        if(!defined('SERVER_ROOT')) throw new Error_Bphp("SERVER_ROOT had not be defined!");
+        if(!defined('FRAME_ROOT')) throw new Error_Bphp("FRAME_ROOT had not be defined!");
+        if(!defined('ENVIRONMENT')) throw new Error_Bphp("ENVIRONMENT had not be defined!");
+    }
+
 }

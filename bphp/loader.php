@@ -39,51 +39,34 @@ class Loader_Bphp{
     }
 
     /**
-     * @param string $config    需要加载的配置文件
-     * @param bool $assoc       返回数组or对象，默认数组
+     * 装载后缀名为ini的配置文件
+     * @param string $section    需要加载的配置段
+     * @param string $env       配置文件名称
+     * @return array
+     * @throws Error_Bphp
      */
-    public function config($config = 'database', $assoc = false){
-        echo '<pre>';
+    public static function config($section = '', $env = ENVIRONMENT){
+        $config = $section.$env.'_Config';
+        if(!isset(self::$load[$config])){
+            $path = SERVER_ROOT."/config/$env.ini";
 
-        var_dump(array(
-           'db'=> array(
-               'local' => array(
-                   'dbdriver' => 'mysql',
-                   'hostname' => 'localhost'
-               )
-           )
-        ));
+            // 检查第ini文件是否存在，如不存在，则创建之
+            if(!file_exists($path)) {
+                throw new Error_Bphp("The file: $path . is not exists");
+            }
+            $conf = parse_ini_file($path, true);
 
-        $path = SERVER_ROOT."/config/$config.ini";
-
-        // 检查第ini文件是否存在，如不存在，则创建之
-        if(!file_exists($path)) {
-            $file=fopen($path,"a");
-            fwrite($file, "[$config]");
-            fclose($file);
+            if(empty($section)){
+                self::$load[$config] = $conf;
+            }else{
+                if(!isset($conf[$section])){
+                    throw new Error_Bphp("There is not $section section in $path");
+                }
+                self::$load[$config] = $conf[$section];
+            }
         }
-
-        $conf = parse_ini_file($path);
-
-        $res = array();;
-        foreach($conf as $key => $value){
-            $exp = explode('.', $key);
-
-            $res +=  $this->fun($res, $exp, $value, 0, count($exp));
-
-        }ini_get_all();
-        var_dump($res);
-        die;
+        return self::$load[$config];
     }
 
-    private  function fun($arr, $key, $value, $curdeep ,$deep){
-        if($curdeep >= $deep) return $value;
-
-        $val = self::fun($arr, $key, $value, $curdeep+1, $deep);
-        $arr = array(
-            $key[$curdeep] => $val
-        );
-        return $arr;
-    }
 
 }

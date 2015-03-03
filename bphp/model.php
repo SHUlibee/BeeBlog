@@ -25,33 +25,28 @@ class Model_Bphp{
 	 */
 	protected $query = '';
 
-	public function __construct($db_name = ''){
-		include_once(SERVER_ROOT.'/config/database.php');
+	public function __construct(){
 
-		$this->link = $DB;
-        $this->prefix = $DB[$db_name]['prefix'];
-		if(isset($this->link[$db_name])){
-			$this->connect_db($db_name);
+		$this->link = Loader_Bphp::config('database', ENVIRONMENT);
+        $this->prefix = $this->link['prefix'];
+		if(isset($this->link)){
+			$this->connect_db();
 		}else{
-			throw new Error_Bphp("$db_name does not exist!");
+			throw new Error_Bphp("This database does not exist!");
 		}
 	}
 
-	private function connect_db($db_name = ''){
-
-		if(empty($db_name)){
-			$db_name = $this->db_name;
-		}
+	private function connect_db(){
 
 		$this->con = mysql_connect(
-			$this->link[$db_name]['hostname'],
-			$this->link[$db_name]['username'],
-			$this->link[$db_name]['password']);
+			$this->link['hostname'],
+			$this->link['username'],
+			$this->link['password']);
 
 		if(!$this->con) throw new Error_Bphp("Could not connect :".mysql_error());
 
-		if(!mysql_select_db($this->link[$db_name]['database'], $this->con))
-            throw new Exception('Could not connect DB you had set :'.mysql_error());
+		if(!mysql_select_db($this->link['database'], $this->con))
+            throw new Error_Bphp('Could not connect DB you had set :'.mysql_error());
 	}
 
 	/**
