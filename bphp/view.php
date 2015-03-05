@@ -11,13 +11,14 @@ class View_Bphp{
 	
 	static $IS_MASTER = false;
 
-	/**
-	 * 方案二
-	 * 加载模版文件
-	 * @param String $template
-	 * @param array $data
-	 */
-	static function render($template, $data = NULL){
+    /**
+     * 方案二
+     * 加载模版文件
+     * @param String $template
+     * @param array $data
+     * @throws Error_Bphp
+     */
+    static function render($template, $data = NULL){
 		
 		if(trim($template) == '') throw new Error_Bphp('模版文件名不能为空！');
 		
