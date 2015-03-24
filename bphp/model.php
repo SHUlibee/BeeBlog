@@ -6,9 +6,19 @@
 class Model_Bphp{
 
 	/**
-	 * 数据库
+	 * 数据库名称
 	 */
 	protected $db_name = 'default';
+
+    /**
+     * 数据库实例
+     */
+    protected $db = null;
+
+    /**
+     * sql选项
+     */
+    protected $options = null;
 
 	/**
 	 * 数据库连接参数
@@ -55,31 +65,44 @@ class Model_Bphp{
 		return $result;
 	}
 
-	/**
-	 * insert or delete or update 查询
-	 * @param string $query 当参数为空或者不传时，采用构造查询的形式
-	 * @return int
-	 */
-	protected function excute($query = ''){
 
-		if($query) $this->query = $query;
-
-		return mysql_query($this->query);
+    public function find(){
+        $this->options['limit'] = 1;
+        $res = $this->db->query($this->options);
+        return $res;
+    }
+    public function select(){
+        $res = $this->db->query($this->options);
+		return $res;
 	}
-
-
-	protected function select(){
-
+    public function field($fields){
+        $this->options['field'] = $fields;
+        return $this;
+    }
+    public function from($tables){
+        $this->options['table'] = $tables;
 		return $this;
 	}
-	protected function from(){
-
+    public function where($where){
+        $this->options['where'] = $where;
 		return $this;
 	}
-	protected function where(){
+    public function limit($limit){
+        $this->options['limit'] = $limit;
+        return $this;
+    }
 
-		return $this;
-	}
+    public function query($query){
+        if(!is_string($query)) throw new Error_Bphp("The 'query' param must be string");
+        $res = $this->db->query($query);
+        return $res;
+    }
+
+    public function execute($query){
+        if(!is_string($query)) throw new Error_Bphp("The 'query' param must be string");
+        $res = $this->db->execute($query);
+        return $res;
+    }
 
 	public function __destruct(){
 		if($this->con)

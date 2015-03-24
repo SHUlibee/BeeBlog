@@ -28,4 +28,31 @@ class Mysql_Bphp extends Db_Bphp{
 
         return $con;
     }
+
+    /**
+     * 执行查询 返回数据集
+     * @param $options
+     * @return array
+     */
+    public function query($options){
+
+        $query = '';
+        if(is_string($options)){
+            $query = $options;
+        }else{
+            $query = $this->buildSelectSql($options);
+        }
+
+        $res = mysql_query($query);
+        $result = array();
+        while ($row = mysql_fetch_object($res)){
+            $result[] = $row;
+        }
+        return $result;
+    }
+
+    public function execute($query){
+
+        return mysql_query($query);
+    }
 }

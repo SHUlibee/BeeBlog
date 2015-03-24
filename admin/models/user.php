@@ -15,7 +15,7 @@ class User_Model extends Model_Bphp{
 	public function get_user(){
 		
 		$sql = "select * from $this->tb_user";
-		
+
 		$res = $this->get($sql);
 		return $res;
 	}
