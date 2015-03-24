@@ -28,25 +28,14 @@ class Model_Bphp{
 	public function __construct(){
 
 		$this->link = Loader_Bphp::config('database', ENVIRONMENT);
+        $this->db = Db_Bphp::factory($this->link['dbdriver']);
         $this->prefix = $this->link['prefix'];
 		if(isset($this->link)){
-			$this->connect_db();
+//			$this->connect_db();
+            $this->db->connect($this->link);
 		}else{
 			throw new Error_Bphp("This database does not exist!");
 		}
-	}
-
-	private function connect_db(){
-
-		$this->con = mysql_connect(
-			$this->link['hostname'],
-			$this->link['username'],
-			$this->link['password']);
-
-		if(!$this->con) throw new Error_Bphp("Could not connect :".mysql_error());
-
-		if(!mysql_select_db($this->link['database'], $this->con))
-            throw new Error_Bphp('Could not connect DB you had set :'.mysql_error());
 	}
 
 	/**
