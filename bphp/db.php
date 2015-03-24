@@ -16,7 +16,7 @@ abstract class Db_Bphp{
     protected $deleteSql = '';
 
     public static function factory($dbType){
-        $class = ucfirst($dbType).'_Bphp';
+        $class = ucfirst($dbType).'_Driver_Bphp';
         $db = new $class();
         return $db;
     }

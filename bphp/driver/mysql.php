@@ -6,7 +6,7 @@
  * Time: 上午10:22
  */
 
-class Mysql_Bphp extends Db_Bphp{
+class Mysql_Driver_Bphp extends Db_Bphp{
 
     /**
      * mysql数据库连接
