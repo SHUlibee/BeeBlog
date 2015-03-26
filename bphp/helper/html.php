@@ -3,7 +3,7 @@
  * 处理html标签
  * @author code29
  */
-class Html_Helper{
+class Html_Helper_Bphp{
 	
 	static function form($action, $method='get', $class=''){
 		

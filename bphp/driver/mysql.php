@@ -36,7 +36,6 @@ class Mysql_Driver_Bphp extends Db_Bphp{
      */
     public function query($options){
 
-        $query = '';
         if(is_string($options)){
             $query = $options;
         }else{
@@ -54,5 +53,18 @@ class Mysql_Driver_Bphp extends Db_Bphp{
     public function execute($query){
 
         return mysql_query($query);
+    }
+
+    /**
+     * 字段和表名处理添加`
+     * @param $key
+     * @return string
+     */
+    protected function parseKey($key){
+        $key   =  trim($key);
+        if(!is_numeric($key) && !preg_match('/[,\'\"\*\(\)`.\s]/',$key)) {
+            $key = '`'.$key.'`';
+        }
+        return $key;
     }
 }
