@@ -1,19 +1,14 @@
 ﻿<?php
-class Home_Controller extends Base_Controller{
+class Home_Controller extends Controller_Bphp{
 	
 	public function __construct(){
 		parent::__construct();
 		
-		$this->view->set_master();
 	}
 	
 	public function index(){
-		$this->view->render('home/view');
+		$this->view->render('home/index');
 	}
 
 
-    public function test(){
-        $this->load->helper('structure');
-    }
-	
 }
