@@ -8,7 +8,7 @@ class Html_Helper_Bphp{
 	static function form($action, $method='get', $class=''){
 		
 		list($c, $f) = explode('.', $action);
-		$url = "/index.php?" . "c=$c" . "&f=$f";
+		$url = "?" . "c=$c" . "&f=$f";
 		
 		echo "<form action='$url' method='$method' class='$class'> ";
 	}

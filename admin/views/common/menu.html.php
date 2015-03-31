@@ -64,38 +64,16 @@
 					<?php foreach ($m1['child'] as $m2):?>
 						<li id="<?php echo $m2['class_name'].'-'.$m2['func_name'];?>"
 							class="<?php echo $m2['class_name'] == $BEE->ctrl ? 'active' : '';?>">
-							<a href="index.php?c=<?php echo $m2['class_name'];?>"><?php echo $m2['name']?></a>
+							<a href="?c=<?php echo $m2['class_name'];?>"><?php echo $m2['name']?></a>
 						</li>
 					<?php endforeach;?>
 					</ul>
 					</li>
 				<?php else:?>
-					<li><a href="index.php?c=<?php echo $m1['class_name'];?>"><?php echo $m1['name']?></a></li>
+					<li><a href="?c=<?php echo $m1['class_name'];?>"><?php echo $m1['name']?></a></li>
 				<?php endif;?>
 			<?php endforeach;?>
 		 
-			<!-- 
-			<li class="nav-parent">
-				<a href=""><i class="icon-time"></i>系统<i class="icon-chevron-right nav-parent-fold-icon"></i></a>
-                <ul class="nav" style="display: block;">
-                  <li class="active"><a href="index.php?c=home">首页</a></li>
-                  <li><a href="index.php?c=user">用户</a></li>
-                  <li><a href="###">Yestorday</a></li>
-                  <li><a href="###">This Week</a></li>
-                </ul>
-           	</li>
-              <li class=""><a href="###"><i class="icon-trash"></i> Trash</a></li>
-              <li class=""><a href="###"><i class="icon-list-ul"></i> All</a></li>
-              <li class="nav-parent active show">
-                <a href="###"><i class="icon-tasks"></i> Status<i class="icon-chevron-right nav-parent-fold-icon icon-rotate-90"></i></a>
-                <ul class="nav" style="display: none;">
-                  <li><a href="###"><i class="icon-circle-blank"></i> Ready</a></li>
-                  <li class=""><a href="###"><i class="icon-play-sign"></i> Ongoing</a></li>
-                  <li><a href="###"><i class="icon-ok-sign"></i> Completed</a></li>
-                </ul>
-              </li>
-               -->
-              
     	</ul>
 	</nav>
           

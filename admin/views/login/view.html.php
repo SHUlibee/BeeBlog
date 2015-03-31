@@ -16,6 +16,7 @@
 				<!-- <span class="input-group-addon"><i class="icon-remove"></i></span> -->
 			</div>
 			<br>
+            <?php echo $geetest;?>
 			<div class="input-group pull-right">
 				<button class="btn btn-primary">登录</button>
 			</div>
