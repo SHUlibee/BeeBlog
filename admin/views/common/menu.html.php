@@ -64,13 +64,13 @@
 					<?php foreach ($m1['child'] as $m2):?>
 						<li id="<?php echo $m2['class_name'].'-'.$m2['func_name'];?>"
 							class="<?php echo $m2['class_name'] == $BEE->ctrl ? 'active' : '';?>">
-							<a href="?c=<?php echo $m2['class_name'];?>"><?php echo $m2['name']?></a>
+							<a href="<?php echo $m2['class_name'];?>"><?php echo $m2['name']?></a>
 						</li>
 					<?php endforeach;?>
 					</ul>
 					</li>
 				<?php else:?>
-					<li><a href="?c=<?php echo $m1['class_name'];?>"><?php echo $m1['name']?></a></li>
+					<li><a href="<?php echo $m1['class_name'];?>"><?php echo $m1['name']?></a></li>
 				<?php endif;?>
 			<?php endforeach;?>
 		 

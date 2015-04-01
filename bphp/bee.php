@@ -66,7 +66,7 @@ class Bee_Bphp{
      * 域名中 c => controller; f => function;
      */
     private function _initRequest(){
-        //以 访问 http://域名.com/index.php?c=user&f=main&param=value 为例
+        //以 访问 http://域名/index.php?c=user&f=main&param=value 为例
         //获取所有请求>>获取 page1&param=value
         $request = $_SERVER['QUERY_STRING'];
         if(empty($request)) $request = 'c=user';

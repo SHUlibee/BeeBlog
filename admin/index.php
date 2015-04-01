@@ -3,6 +3,8 @@
  * 入口文件
  */
 
+//应用名称（文件夹名）
+define('APP_NAME', 'admin');
 //应用根目录
 define('SERVER_ROOT', dirname(__FILE__));
 //框架根目录

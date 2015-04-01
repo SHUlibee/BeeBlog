@@ -29,7 +29,7 @@
                 </li>
               </ul>
 			<ul class="nav navbar-nav navbar-right">
-                <li><a href="index.php?c=login&f=do_logout">注销</a></li>
+                <li><a href="login/do_logout">注销</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                   <ul class="dropdown-menu" role="menu">

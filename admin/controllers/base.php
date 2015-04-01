@@ -7,7 +7,7 @@ class Base_Controller extends Controller_Bphp{
 		//登录验证
 		if(!isset($_SESSION['account'])){
 			//域名自动补齐
-			header("Location: index.php?c=login");
+			$this->redirect('login');
 		}
 		
 	}

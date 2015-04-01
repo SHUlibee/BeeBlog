@@ -3,7 +3,7 @@
 <div id="login-panel" class="panel">
 	<div class="panel-heading">欢迎使用【蜜蜂博客】</div>
 	<div class="panel-body">
-		<?php Html_Helper_Bphp::form('login.do_login', 'post', 'form-horizontal');?>
+		<?php Html_Helper_Bphp::form('login/do_login', 'post', 'form-horizontal');?>
 			<div class="input-group">
 		        <span class="input-group-addon"><i class="icon-user"></i></span>
 				<input name="account" type="text" class="form-control" placeholder="用户名">
