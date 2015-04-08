@@ -10,9 +10,6 @@ define('SERVER_ROOT', dirname(__FILE__));
 //框架根目录
 define('FRAME_ROOT', dirname(SERVER_ROOT).'/bphp/');
 
-//服务器域名
-define('SITE_ROOT', 'http://mvc.com');
-
 //生产环境，相当于config中.ini文件的文件名
 define('ENVIRONMENT', 'dev');
 

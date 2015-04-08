@@ -94,6 +94,7 @@ class Bee_Bphp{
     }
 
     private function _validateConst(){
+        if(!defined('APP_NAME')) throw new Error_Bphp("APP_NAME had not be defined!");
         if(!defined('SERVER_ROOT')) throw new Error_Bphp("SERVER_ROOT had not be defined!");
         if(!defined('FRAME_ROOT')) throw new Error_Bphp("FRAME_ROOT had not be defined!");
         if(!defined('ENVIRONMENT')) throw new Error_Bphp("ENVIRONMENT had not be defined!");
