@@ -22,8 +22,11 @@ class Controller_Bphp{
 
 	public function __construct(){
 		
-		$this->view = new View_Bphp();
-        $this->load = new Loader_Bphp();
+		$this->view = View_Bphp::create();
+
+        $this->load = Loader_Bphp::create();
+
+
 	}
 
     /**

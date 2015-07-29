@@ -7,9 +7,14 @@ class Loader_Bphp{
 
     private static $load;
 
-	public function __construct(){
-		
-	}
+    private static $_instance = NULL;
+
+	public static function create(){
+        if(!self::$_instance){
+            self::$_instance = new Loader_Bphp();
+        }
+        return self::$_instance;
+    }
 
     /**
      * 单例设计模式，保证model只被实例化一次

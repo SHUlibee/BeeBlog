@@ -5,13 +5,18 @@
  */
 class Bee_Bphp{
 
-    var $controller = null;
+    private $controller = null;
 
-	var $ctrl = null;
-	var $func = null;
-    var $getVars = null;
+    private $ctrl = null;
+    private $func = null;
+    private $getVars = null;
+
+    private $default_ctrl = 'index';
+    private $default_func = 'index';
 	
 	public function __construct(){
+        //初始化配置
+        $this->_initConfig();
 
         //检验必要常量
         $this->_validateConst();
@@ -32,7 +37,7 @@ class Bee_Bphp{
         $func = $this->func;
 
 		//如果未传方法名，则默认index方法
-		if(empty($func)) $func = 'index';
+		if(empty($func)) $func = $this->default_func;
 
 		//构造控制器文件路径
 		$target = SERVER_ROOT . '/controllers/' . $ctrl. '.php';
@@ -69,7 +74,7 @@ class Bee_Bphp{
         //以 访问 http://域名/index.php?c=user&f=main&param=value 为例
         //获取所有请求>>获取 page1&param=value
         $request = $_SERVER['QUERY_STRING'];
-        if(empty($request)) $request = 'c=user';
+        if(empty($request)) $request = 'c=' . $this->default_ctrl;
 
         //解析$request变量>>获取 array('c=user', 'f=main', 'param=value')
         $parsed = explode('&', $request);
@@ -100,4 +105,21 @@ class Bee_Bphp{
         if(!defined('ENVIRONMENT')) throw new Error_Bphp("ENVIRONMENT had not be defined!");
     }
 
+    private function _initConfig(){
+        $sysConfig = Loader_Bphp::create()->config('system');
+
+        //模版文件后缀
+        if(isset($sysConfig['view_suffix'])){
+            View_Bphp::create()->setSuffix($sysConfig['view_suffix']);
+        }
+        //默认控制器名
+        if(isset($sysConfig['default_ctrl'])){
+            $this->default_ctrl = $sysConfig['default_ctrl'];
+        }
+        //默认方法名
+        if(isset($sysConfig['default_func'])){
+            $this->default_func = $sysConfig['default_func'];
+        }
+
+    }
 }
