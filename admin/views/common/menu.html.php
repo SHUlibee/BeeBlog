@@ -14,26 +14,46 @@
 	<?php
 		global $BEE;
 		$menus = array(
-			1 => array(
-				'name' => '系统',
-				'class_name'=>'',
-				'func_name' =>'',
-				'is_leaf' => 0,
-				'child' => array(
-					2=>array(
-						'name' => '首页',
-						'class_name'=>'home',
-						'func_name' =>'index',
-						'is_leaf' => 1,
-					),
-					3=>array(
-						'name' => '用户',
-						'class_name'=>'user',
-						'func_name' =>'index',
-						'is_leaf' => 1,
-					),
-				),
-			),
+            1 => array(
+                'name' => '系统',
+                'class_name'=>'',
+                'func_name' =>'',
+                'is_leaf' => 0,
+                'child' => array(
+                    2=>array(
+                        'name' => '首页',
+                        'class_name'=>'home',
+                        'func_name' =>'index',
+                        'is_leaf' => 1,
+                    ),
+                    3=>array(
+                        'name' => '用户',
+                        'class_name'=>'user',
+                        'func_name' =>'index',
+                        'is_leaf' => 1,
+                    ),
+                ),
+            ),
+            6 => array(
+                'name' => '文章',
+                'class_name'=>'',
+                'func_name' =>'',
+                'is_leaf' => 0,
+                'child' => array(
+                    7=>array(
+                        'name' => '所有文章',
+                        'class_name'=>'blog',
+                        'func_name' =>'index',
+                        'is_leaf' => 1,
+                    ),
+                    8=>array(
+                        'name' => '写文章',
+                        'class_name'=>'blog',
+                        'func_name' =>'add',
+                        'is_leaf' => 1,
+                    ),
+                ),
+            ),
 			4 => array(
 				'name' => 'Trash',
 				'class_name'=>'',
@@ -63,8 +83,8 @@
 					<ul class="nav" style="display: block;">
 					<?php foreach ($m1['child'] as $m2):?>
 						<li id="<?php echo $m2['class_name'].'-'.$m2['func_name'];?>"
-							class="<?php echo $m2['class_name'] == $BEE->ctrl ? 'active' : '';?>">
-							<a href="<?php echo $m2['class_name'];?>"><?php echo $m2['name']?></a>
+							class="<?php echo $m2['class_name'] == $BEE->getCtrl() ? 'active' : '';?>">
+							<a href="<?php echo '?c=' . $m2['class_name'] . '&f=' . $m2['func_name'];?>"><?php echo $m2['name']?></a>
 						</li>
 					<?php endforeach;?>
 					</ul>
@@ -85,7 +105,7 @@
 $('.menu .nav li:not(".nav-parent") a').click(function (){
 	menu_click(this);
 });
-var lid = '<?php echo $BEE->ctrl.'-'.$BEE->func;?>';
+var lid = '<?php echo $BEE->getCtrl().'-'.$BEE->getFunc();?>';
 $("#"+lid).load(function(){
 	menu_click(this);
 });

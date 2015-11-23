@@ -122,4 +122,13 @@ class Bee_Bphp{
         }
 
     }
+
+
+    public function getCtrl(){
+        return $this->ctrl;
+    }
+
+    public function getFunc(){
+        return $this->func;
+    }
 }

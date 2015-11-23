@@ -1,12 +1,12 @@
 ﻿<html>  
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    	<link rel="stylesheet" href="public/zui/css/zui.min.css" type="text/css" media="screen">
-    	<script src="public/js/jquery.js" type="text/javascript"></script>
-    	<script src="public/zui/js/zui.js" type="text/javascript"></script>
-        <link rel="icon" href="public/images/bee_logo.png" type="image/png" />
+    	<link rel="stylesheet" href="../admin/public/zui/css/zui.min.css" type="text/css" media="screen">
+    	<script src="../admin/public/js/jquery.js" type="text/javascript"></script>
+    	<script src="../admin/public/zui/js/zui.js" type="text/javascript"></script>
+        <link rel="icon" href="../admin/public/images/bee_logo.png" type="image/png" />
         <title>Demo of BeePHP</title>
-    </head>  
+    </head>
     <body>
 	<nav class="navbar navbar-inverse" role="navigation">
 
